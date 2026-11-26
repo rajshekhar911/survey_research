@@ -1,0 +1,12 @@
+{
+  "_note": "Fill every [bracketed] field before launch. completion_redirect may use {code} and {pid} placeholders (e.g. for a panel provider). n_tasks: 8 = each category once; up to 16 repeats categories.",
+  "study_title": "Product choice survey",
+  "institution": "[Your institute / department]",
+  "researcher_name": "[Principal investigator name]",
+  "contact_email": "[study contact email]",
+  "ethics_ref": "[Institute Ethics Committee approval no.]",
+  "estimated_minutes": 3,
+  "n_tasks": 8,
+  "min_seconds": 40,
+  "completion_redirect": ""
+}

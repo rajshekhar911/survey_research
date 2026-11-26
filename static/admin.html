@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Survey Admin</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="admin">
+  <header class="top"><div class="top-inner"><span class="logo">📊 Survey admin</span>
+    <span class="muted" id="updated"></span></div></header>
+  <main class="wrap">
+    <h1>Fieldwork</h1>
+    <div class="cards" id="cards"></div>
+
+    <div class="grid2">
+      <section>
+        <h2>Quality flags (completed)</h2>
+        <table class="data" id="flags"></table>
+        <h2>Completes per day</h2>
+        <table class="data" id="perday"></table>
+      </section>
+      <section>
+        <h2>Choice shares (quality-pass completes)</h2>
+        <p class="muted">Share of times a listing with that level was chosen when shown. Chance = 0.333.
+          Quick check only: the real analysis is the HB logit on <code>choices_long.csv</code>.</p>
+        <div id="shares"></div>
+      </section>
+    </div>
+
+    <h2>Downloads</h2>
+    <div class="exports">
+      <a href="/admin/export/choices_long.csv">choices_long.csv</a>
+      <a href="/admin/export/respondents.csv">respondents.csv</a>
+      <a href="/admin/export/events.csv">events.csv</a>
+      <a href="/admin/export/choice_sets.json">choice_sets.json (for the agent study)</a>
+    </div>
+
+    <h2>Stimulus viewer</h2>
+    <p class="muted">Renders one choice task exactly as participants see it, e.g. for agent screenshots.
+      Use a respondent ID, or a seed to generate a fresh design.</p>
+    <form class="row" id="stimform" action="/admin/stimulus" method="get" target="_blank">
+      <label>Respondent ID<input name="r" type="text" placeholder="optional"></label>
+      <label>or seed<input name="seed" type="number" value="1"></label>
+      <label>Screen (0–7)<input name="t" type="number" min="0" max="15" value="0"></label>
+      <label>Buttons<select name="buttons"><option value="1">show</option><option value="0">hide</option></select></label>
+      <button class="primary" type="submit">Open</button>
+    </form>
+  </main>
+  <script src="/static/admin.js"></script>
+</body>
+</html>
